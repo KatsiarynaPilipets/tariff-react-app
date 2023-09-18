@@ -1,38 +1,89 @@
 .App {
   text-align: center;
+  margin: 20px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.tariff-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.tariff-card {
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px;
+  width: 300px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+.tariff-item {
+
+  padding: 10px;
+  width: 100%;
+  text-align: center;
+}
+
+.blue h3,
+.green h3,
+.red h3,
+.gray h3 {
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.blue {
+  background-color: blue;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.green {
+  background-color: green;
+}
+
+.red {
+  background-color: red;
+}
+
+.gray {
+  background-color: gray;
+}
+
+h3 {
+  font-size: 1rem;
+  margin: 0;
+}
+
+p {
+  margin: 5px 0;
+}
+
+.light-blue h3,
+.light-green h3,
+.light-red h3,
+.light-gray h3 {
+  color: white;
+}
+
+.light-blue {
+  background-color: lightblue;
+}
+
+.light-green {
+  background-color: lightgreen;
+}
+
+.light-red {
+  background-color: lightcoral;
+}
+
+.light-gray {
+  background-color: lightgray;
+}
+
+.upperline {
+  align-self: flex-start;
+}
+
+.underline {
+  align-self: flex-end;
 }
