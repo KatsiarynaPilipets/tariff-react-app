@@ -1,24 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
-
-function TariffCard({ title, price, speed, data, colorClass }) {
-  return (
-    <div className="tariff-card">
-      <div className="tariff-item">
-        <h3 className={colorClass}>Безлимитный {title}</h3>
-      </div>
-      <div className="tariff-item">
-      <h3 className={colorClass}><span className="upperline"> руб</span> { price }<span className="underline">/мес</span></h3>
-      </div>
-      <div className="tariff-item">
-        <p>{speed}</p>
-      </div>
-      <div className="tariff-item">
-        <p>{data}</p>
-      </div>
-    </div>
-  );
-}
+import TariffCard from './Tariff';
 
 function App() {
   const tariffs = [
@@ -52,13 +34,28 @@ function App() {
     },
   ];
 
+  const [selectedTariff, setSelectedTariff] = useState(null);
+
+  const handleTariffSelect = (tariff) => {
+    setSelectedTariff(tariff);
+  };
+
   return (
     <div className="App">
       <div className="tariff-container">
         {tariffs.map((tariff, index) => (
-          <TariffCard key={index} {...tariff} />
+          <TariffCard key={index} {...tariff} onSelect={handleTariffSelect}/>
         ))}
       </div>
+      {selectedTariff && (
+        <div className="selected-tariff">
+          <h2>Выбранный тариф:</h2>
+          <p>{selectedTariff.title}</p>
+          <p>{selectedTariff.price} в месяц</p>
+          <p>{selectedTariff.speed}</p>
+          <p>{selectedTariff.data}</p>
+        </div>
+      )}
     </div>
   );
 }
